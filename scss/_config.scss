@@ -1,4 +1,4 @@
-$primary-color: #dfbdbd;
+$primary-color: #e8cdcd;
 $secondary-color:rgb(122, 160, 160);
 $word-color:rgb(76, 134, 137);
 $show-home-image:true;
@@ -31,15 +31,24 @@ $bg-opacity:0.9;
     }
 }
 
+//Set text color
+@function set-text-color($color){
+    @if(lightness($color)>40){
+        @return $word-color;
+    }@else{
+        @return #fff;
+    }
+}
+
 //Media query Mixins
 @mixin mediaSm{
-    @media screen and (max-width: 500px) {
+    @media screen and (max-width: 399px) {
         @content;
     }
 }
 
 @mixin mediaMd{
-    @media screen and (min-width: 501px) and (max-width: 768px) {
+    @media screen and (min-width: 400px) and (max-width: 768px) {
         @content;
     }
 }
