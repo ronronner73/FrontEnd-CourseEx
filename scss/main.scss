@@ -24,13 +24,13 @@ h3{
     font-weight: 400;
 
     &.lg-heading{
-        font-size: 5rem;
+        font-size: 4.5rem;
     }
 
     &.sm-heading{
         margin-bottom: 2rem;
         padding: 0.2rem 1rem;
-        background: lighten($primary-color, 2);
+        background: lighten($primary-color, 1.2);
     }
 }
 
@@ -87,13 +87,14 @@ main{
         margin: auto;
         border-radius: 50%;
         border: $secondary-color 3px solid;
-        width: 240px;
-        height: 240px;
+        width: 180px;
+        height: 180px;
     }
     
     .bio{
         grid-area: bio;
         font-size: 1.2rem;
+        
     }
     
     .job-1{
@@ -111,6 +112,49 @@ main{
         padding: 0.5rem;
         border-bottom: $secondary-color 5px solid;
     }
+}
+
+// Work
+.projects{
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: repeat(3,1fr);
+
+    img{
+        width: 100%;
+        border: 3px $word-color solid;
+
+        &:hover{
+            opacity: 0.55;
+            border-color: $secondary-color;
+            @include easeOut;
+        }
+    }
+}
+
+//Button styles
+.btn{
+    display: block;
+    padding: 0.2rem 1rem;
+    border:  0;
+    margin-bottom:0.3rem ;
+
+    &:hover{
+        background:lighten($secondary-color,12);
+        color: set-text-color($secondary-color);
+    }
+}
+
+.btn-dark{
+    @extend .btn;
+    background: darken($primary-color,10);
+    color:$word-color;
+}
+
+.btn-light{
+    @extend .btn;
+    background: lighten($primary-color,5);
+    color:$word-color;
 }
 
 #main-footer{
