@@ -1,0 +1,208 @@
+
+.mobile-logo{
+    position: absolute;
+    z-index: 3;
+    width: 100%;
+    display: block;
+    font-family:orpheus-pro, Cochin, Georgia, Times, 'Times New Roman', serif;
+    padding: 31px 35px;
+    font-size: 0.7rem;
+    text-align: left;
+    border-bottom: 1px solid set-text-color-blue($change-color);
+
+    &.color{
+        h1{color: $secondary-color;}
+    }
+}
+
+//Menu Button
+.menu-btn{
+    position: absolute;
+    z-index: 3;
+    right: 35px;
+    top: 35px;
+    cursor: pointer;
+    @include easeOut;
+
+    .btn-line{
+        width: 28px;
+        height: 2px;
+        margin: 0 0 6px 0;
+        background: #fff;
+        display: block;
+        @include easeOut;
+    }
+
+    //Rotate into X with menu lines
+    &.close{
+        transform: rotate(-180deg);
+        top: 28px;
+
+        .btn-line{
+            //Line 1 - Rotate
+            &:nth-child(1){
+                transform: rotate(45deg) translate(5px,5px);
+                background: $secondary-color;
+            }
+            //Line 2 - Hide
+            &:nth-child(2){
+                opacity:0;
+            }
+            //Line 3 - Rotate
+            &:nth-child(3){
+                transform: rotate(-45deg) translate(7px,-6px);
+                background: $secondary-color;
+            }
+        }
+    }
+}
+
+//Menu overlay
+.menu-mobile{
+    z-index: 2;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    visibility: hidden;
+    
+    &.show{
+        visibility: visible;
+    }
+   
+    &-nav{
+        display: flex;
+        flex-flow: column wrap;
+        align-items: center;
+        justify-content: center;
+        float: left;
+        width: 100%;
+        height: 100vh;
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+        background: #fff;
+        list-style: none;
+        transform: translate3d(0,-100%,0);
+        @include easeOut;
+
+        &.show{
+            //Slide in from top
+            transform: translate3d(0,0,0);
+        }
+    }
+
+    .nav-mobile-item{
+        transform: translate3d(0,-120px,0);
+        @include easeOut;
+
+        &.show{
+            transform: translate3d(0,-30px,0);
+        }
+        
+    }
+
+    .nav-link{
+        display: inline-block;
+        position: relative;
+        font-size: 30px;
+        text-transform: uppercase;
+        padding: 1rem;
+        font-weight: 320;
+        color: $secondary-color;
+        text-decoration: none;
+        transition: all 0.25s ease-out;
+
+        &:hover{
+            color: $secondary-color;
+            transform: scale(1.07);
+            transform-origin: center;
+        }
+    }
+
+    .nav-mobile-icons{
+        display: flex;
+        position:absolute;
+        bottom:0vh;
+        i{transform: scale(1.5);}
+        li{padding:0.7rem;}
+        color: $secondary-color; 
+
+        transform: translate3d(0,-100px,0);
+        @include easeOut;
+
+        &.show{
+            transform: translate3d(0,0,0);
+        }
+    }
+}
+
+
+// Delay each nav item slide
+@for $x from 1 through 2 {
+    .nav-mobile-item:nth-child(#{$x}){
+        transition-delay: $x* 0.1s;
+    }
+}
+
+//Web nav
+.webheader{
+    z-index: 3;
+    position: fixed;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px 50px;
+    color:set-text-color($secondary-color);
+    border-bottom: 1px solid set-text-color-blue($secondary-color);
+    @include easeOut;
+
+    &.webheader-scrolled{
+        background-color: $secondary-color;
+        box-shadow: 0 3px 10px rgba(3, 35, 61, 0.15);
+    }
+
+    &.line{
+        border-bottom: 0px solid set-text-color-blue($change-color);
+    }
+    
+    .logo{
+        font-family:orpheus-pro, Cochin, Georgia, Times, 'Times New Roman', serif;
+        font-size: 27px;
+        font-weight: 200;
+        text-align: center;
+        color: set-text-color-brown($change-color);   
+    }
+
+    .menu-web{
+        align-items: center;
+        display: flex;
+        column-gap: 15px;
+    }
+    
+    .menu-web-nav{
+        &.current > a {
+            border-bottom: 1.5px solid set-text-color-blue($change-color);
+        }
+    }
+    
+    .web-link{
+        text-decoration: none;
+        color: set-text-color-blue($change-color);   
+    }
+    
+    .menu-web-icons{
+        a{
+            color: set-text-color-blue($change-color); 
+            padding: 0.4rem;
+        } 
+    }
+    
+}
+a{
+    color: darken($secondary-color,10);
+    text-decoration: none;
+}
+ul{
+    list-style: none;
+}

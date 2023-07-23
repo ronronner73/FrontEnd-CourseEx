@@ -1,0 +1,124 @@
+//Widescreens
+@include mediaXl{
+    
+    
+    
+}
+
+//Desktops & Laptops
+@include mediaLg{
+    /*
+    .projects{
+        grid-template-columns: repeat(2,1fr);
+    }*/
+}
+
+//Tablet & Small Laptops
+@include mediaMd{
+
+    h1,
+    h2,
+    h3{
+        &.lg-heading{
+            font-size: 1.9rem;
+        }
+        &.text,&.sm-slogan{
+            font-size: 0.7rem;
+        }
+        &.title{
+            font-size: 1rem;
+        }
+        &.read-btn{
+            font-size: 0.7rem;
+            padding: 0.1rem 0.5rem;
+            width: 9.5rem;
+            border: 1.8px solid $primary-color;
+            margin-top: 5vh;
+            padding: 1rem 3rem;
+            width: 12rem;
+
+        }
+
+    
+    }
+    main{
+        padding: 2rem;
+        .content{
+            grid-template-areas: 
+            'intro1'
+            'con1'
+            'intro2'
+            'con2';
+            grid-template-columns: 1fr;
+        }
+        .card{
+            padding: 0rem 0rem;
+        }
+    }
+    
+
+
+    /*main{
+        align-items: center;
+        text-align: center;
+
+        .lg-heading{
+            line-height: 1;
+            margin-bottom: 1rem;
+        }
+    }
+
+    ul.menu-nav,
+    div.menu-branding{
+        float:none;
+        width:100%;
+        min-height: 0;
+
+        &.show{
+            transform: translate3d(0,0,0);
+        }
+    }
+    
+    .menu-nav{
+        height:75vh;
+        transform: translate3d(100%,0,0);
+        font-size: 24px;
+    }
+
+    .menu-branding{
+        height:25vh;
+        transform: translate3d(-100%,0,0);
+
+        .portrait{
+            background: url(../img/cutecat.jpg);
+            width: 150px;
+            height: 150px;
+            background-size: cover;
+            border: solid 3px $secondary-color;
+        }
+    }
+
+    .about-info{
+        grid-template-areas: 
+        'bioimage'
+        'bio'
+        'job1'
+        'job2'
+        'job3';
+        grid-template-columns: 1fr;
+    }
+
+    .projects{
+        grid-template-columns: repeat(1,1fr);
+    }
+    */
+}
+
+//Smartphones
+
+@include mediaSm{/*
+    main#home h1{
+        margin-top: 10vh;
+    }
+    */
+}

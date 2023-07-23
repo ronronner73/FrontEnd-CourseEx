@@ -1,0 +1,76 @@
+$primary-color: #592c1a;
+$secondary-color:#0d7f8b;
+$change-color:$secondary-color;
+$show-home-image:true;
+$home-image:url(../img/flower3.png);
+$bg-opacity:0.5;
+$blueText:set-text-color-blue(#fff);
+$brownText:set-text-color-brown(#fff);
+
+@mixin easeOut{
+    transition: all 0.5s ease-out;
+}
+
+@mixin background{
+    @if $show-home-image{
+        &.first{
+            background: $home-image;
+            z-index: 1;
+            background-size: cover;
+
+            //overlay
+            &:after{
+                content: '';
+                position: absolute;
+                top:0;
+                right:0;
+                width: 100%;
+                height: 100%;
+                z-index: -1;
+                background:rgba(#328f9a,$bg-opacity);
+            }
+        }
+    }
+}
+
+//change header color
+@function set-text-color-blue($color){
+    @if(lightness($color)>40){
+        @return $secondary-color;
+    }@else{
+        @return #fff;
+    }
+}
+
+@function set-text-color-brown($color){
+    @if(lightness($color)>40){
+        @return $primary-color;
+    }@else{
+        @return #fff;
+    }
+}
+
+//Media query Mixins
+@mixin mediaSm{
+    @media screen and (max-width: 399px) {
+        @content;
+    }
+}
+
+@mixin mediaMd{
+    @media screen and (min-width: 400px) and (max-width: 767px) {
+        @content;
+    }
+}
+
+@mixin mediaLg{
+    @media screen and (min-width: 768px) and (max-width: 1000px) {
+        @content;
+    }
+}
+
+@mixin mediaXl{
+    @media screen and (min-width: 1000px) {
+        @content;
+    }
+}

@@ -1,0 +1,205 @@
+@import 'config';
+@import 'menu';
+
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    position: relative;
+    font-family: Helvetica,'Open Sans Light',Arial, Helvetica, sans-serif;
+}
+
+.first{
+    @include background;
+    position:relative;
+    color: set-text-color($secondary-color);
+    height:fit-content;
+    margin: 0;
+    
+}
+.second{
+    background: #fff;
+    position:relative;
+    height:fit-content;
+    margin: 0;
+}
+
+.btn{
+    display: block;
+    padding: 0.2rem 1rem;
+    border: 1.5px solid #fff;
+    border-radius: 3px;
+    margin-bottom:2rem ;
+    text-align: center;
+
+    &:hover{
+        background:#fff;
+        color: $secondary-color;
+        transition: all 0.3s ease-out;
+    }
+}
+
+h1,
+h2,
+h3
+{
+    margin: 0;
+    font-weight: 100;
+
+    &.lg-heading{
+        font-family:orpheus-pro, Cochin, Georgia, Times, 'Times New Roman', serif;
+        font-size: 2.8rem;
+        margin-top: 80px;
+        line-height: 1.3;
+    }
+    &.sm-heading{
+        margin-top: 5vh;
+        font-family:orpheus-pro, Cochin, Georgia, Times, 'Times New Roman', serif;
+        font-size: 3.1rem;
+        color: $primary-color;
+    }
+    &.text{
+        padding: 0.25rem 0.25rem;
+        font-size: 1rem;
+        text-align: center;
+    }
+    &.book-btn{
+        @extend .btn;
+        font-weight: lighter;
+        margin-top: 18vh;
+        padding: 1rem 3rem;
+        width: 12rem;
+    }
+    &.date{
+        margin-top: 1.9vh;
+    }
+    
+    &.title{
+        padding: 0.3rem 0.1rem;
+        font-size: 1.3rem;
+        text-align: center;
+    }
+    &.detail{
+        margin-bottom: 3vh;
+    }
+    &.sm-slogan{
+        margin-top: 8vh;
+        padding: 0rem 0.2rem;
+        font-size: 1rem;
+        text-align: left;
+    }
+    &.read-btn{
+        margin-top: 9vh;
+        font-size: 1rem;
+        @extend .btn;
+        padding: 0.1rem 1rem;
+        width: 9.5rem;
+        border: 2px solid $primary-color;
+        &:hover{
+            background:$primary-color;
+            color: #fff;
+            transition: all 0.3s ease-out;
+        }
+        color: $primary-color;
+    }
+
+}
+h1{
+    color:set-text-color-blue($change-color);   
+}
+h2{
+    color: set-text-color-brown($change-color);
+}
+h3{
+    color: #fff;
+}
+main{
+    padding: 3rem;
+    min-height: calc(100vh-60px);
+
+    .main-pics{
+        display: grid;
+        grid-gap:2vw;
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    img{
+        margin-top: 3vh;
+        width:100%;
+
+        &:hover{
+            opacity: 0.8;
+            border-color: #fff;
+            @include easeOut;
+        }
+    }
+
+    .content{
+        display: grid;
+        grid-gap: 15px 13px;
+        grid-template-areas: 
+        'intro1 con1'
+        'intro2 con2';
+        grid-template-columns: 30% 70%;
+        h1{
+            color: set-text-color-blue(#fff);
+        }
+        .i1{
+            grid-area: intro1;
+        }
+        .c1{
+            grid-area: con1;
+        }
+        .i2{
+            grid-area: intro2;
+        }
+        .c2{
+            grid-area: con2;
+        }
+        .container{
+            overflow: hidden;
+            width: 100%;
+            padding:1rem 0rem ;
+        }
+        .slide-container{
+            display: flex;
+            margin: 0;
+            overflow: hidden;
+        }
+        .card{
+            padding: 0rem 0.1rem;
+        }
+        .card .image-box img{
+            object-fit: cover;
+            width: 100%;
+        }
+        .details{
+            .date{
+                color: lighten($secondary-color,5);
+            }
+            .title,.detail{
+                color: darken($secondary-color,5);
+            }
+        }
+        .swiper-navBtn::before,
+        .swiper-navBtn::after{
+            font-size: 18px;
+        }
+    }
+}
+
+
+#main-footer{
+    text-align: center;
+    padding: 1rem;
+    background: $primary-color;
+    color:#fff;
+    height: 60px;
+}
+
+@import 'mobile';
