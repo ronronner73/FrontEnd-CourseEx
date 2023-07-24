@@ -4,6 +4,6 @@ Student name: Cheng Xiao; Student number: 000205999
 
 Demo video link(youtube): https://youtu.be/hvBenazkT-Q
 
-Start with dist/home.html
+# Start with dist/home.html
 
 Exercise material is in another branch. Learning materials outside the course are mentioned in the Learning Diary.
