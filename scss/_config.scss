@@ -49,18 +49,11 @@ $bg-opacity:0.5;
     }
 }
 
-//change header color
-@function set-text-color-blue($color){
-    @if(lightness($color)>40){
-        @return $secondary-color;
-    }@else{
-        @return #fff;
-    }
-}
+
 
 
 //It didn't work correctly in this project of mine qwq
-@function set-text-color-brown($color){
+@function set-text-color($color){
     @if(lightness($color)>40){
         @return $primary-color;
     }@else{

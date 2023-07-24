@@ -437,12 +437,6 @@ h3 {
   background: #592c1a;
   height: 60px; }
 
-@media screen and (min-width: 768px) and (max-width: 1000px) {
-  /*
-    .projects{
-        grid-template-columns: repeat(2,1fr);
-    }*/ }
-
 @media screen and (min-width: 400px) and (max-width: 767px) {
   h1.lg-heading,
   h2.lg-heading,
