@@ -1,5 +1,7 @@
 # FrontEnd-CourseEx
 
+Student name: Cheng Xiao; Student number:000205999
+
 Demo video link:https://youtu.be/hvBenazkT-Q
 
 Start with dist/home.html
