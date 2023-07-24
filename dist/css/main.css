@@ -1,3 +1,7 @@
+:root {
+  --webnav-color: #fff;
+  --logo-color:#fff; }
+
 .mobile-logo {
   position: absolute;
   z-index: 3;
@@ -7,9 +11,12 @@
   padding: 31px 35px;
   font-size: 0.7rem;
   text-align: left;
-  border-bottom: 1px solid #fff; }
-  .mobile-logo.color h1 {
-    color: #0d7f8b; }
+  border-bottom: 1px solid var(--webnav-color);
+  color: var(--logo-color); }
+  .mobile-logo.color {
+    border-bottom: 1px solid #fff; }
+    .mobile-logo.color h1 {
+      color: #0d7f8b; }
 
 .menu-btn {
   position: absolute;
@@ -22,7 +29,7 @@
     width: 28px;
     height: 2px;
     margin: 0 0 6px 0;
-    background: #fff;
+    background: var(--webnav-color);
     display: block;
     transition: all 0.5s ease-out; }
   .menu-btn.close {
@@ -104,37 +111,43 @@
 .webheader {
   z-index: 3;
   position: fixed;
-  display: flex;
+  display: grid;
+  grid-template-areas: 'link logo img';
+  grid-template-columns: repeat(3, 1fr);
   width: 100%;
   align-items: center;
-  justify-content: space-between;
   padding: 30px 50px;
-  color: set-text-color(#0d7f8b);
-  border-bottom: 1px solid #fff;
+  color: var(--webnav-color);
+  border-bottom: 1px solid var(--webnav-color);
   transition: all 0.5s ease-out; }
   .webheader.webheader-scrolled {
     background-color: #0d7f8b;
     box-shadow: 0 3px 10px rgba(3, 35, 61, 0.15); }
   .webheader.line {
-    border-bottom: 0px solid #fff; }
+    border-bottom: 0px solid var(--webnav-color); }
   .webheader .logo {
+    text-align: center;
+    grid-area: logo;
     font-family: orpheus-pro, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: 27px;
     font-weight: 200;
-    text-align: center;
-    color: #fff; }
+    color: var(--logo-color); }
   .webheader .menu-web {
+    grid-area: link;
     align-items: center;
     display: flex;
     column-gap: 15px; }
   .webheader .menu-web-nav.current > a {
-    border-bottom: 1.5px solid #fff; }
+    border-bottom: 1.5px solid var(--webnav-color); }
   .webheader .web-link {
     text-decoration: none;
-    color: #fff; }
-  .webheader .menu-web-icons a {
-    color: #fff;
-    padding: 0.4rem; }
+    color: var(--webnav-color); }
+  .webheader .menu-web-icons {
+    text-align: right;
+    grid-area: img; }
+    .webheader .menu-web-icons a {
+      color: var(--webnav-color);
+      padding: 0.4rem; }
 
 a {
   color: #09545c;
@@ -154,7 +167,7 @@ body {
 
 .first {
   position: relative;
-  color: set-text-color(#0d7f8b);
+  color: #fff;
   height: fit-content;
   margin: 0; }
   .first.first {
@@ -170,6 +183,19 @@ body {
       height: 100%;
       z-index: -1;
       background: rgba(50, 143, 154, 0.5); }
+  .first.image {
+    background: url(../img/coffeebean.jpg);
+    z-index: 1;
+    background-size: cover; }
+    .first.image:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: rgba(89, 44, 26, 0.5); }
 
 .second {
   background: #fff;
@@ -266,70 +292,149 @@ h3 {
       color: #fff;
       transition: all 0.3s ease-out; }
 
-h1 {
-  color: #fff; }
-
-h2 {
-  color: #fff; }
-
 h3 {
   color: #fff; }
 
-main {
+.home {
   padding: 3rem;
   min-height: calc(100vh-60px); }
-  main .main-pics {
+  .home .main-pics {
     display: grid;
     grid-gap: 2vw;
     grid-template-columns: repeat(2, 1fr); }
-  main img {
+  .home img {
     margin-top: 3vh;
     width: 100%; }
-    main img:hover {
+    .home img:hover {
       opacity: 0.8;
       border-color: #fff;
       transition: all 0.5s ease-out; }
-  main .content {
+  .home .content {
     display: grid;
     grid-gap: 15px 13px;
     grid-template-areas: 'intro1 con1' 'intro2 con2';
     grid-template-columns: 30% 70%; }
-    main .content h1 {
+    .home .content h1 {
       color: #0d7f8b; }
-    main .content .i1 {
+    .home .content .i1 {
       grid-area: intro1; }
-    main .content .c1 {
+    .home .content .c1 {
       grid-area: con1; }
-    main .content .i2 {
+    .home .content .i2 {
       grid-area: intro2; }
-    main .content .c2 {
+    .home .content .c2 {
       grid-area: con2; }
-    main .content .container {
+    .home .content .container {
       overflow: hidden;
       width: 100%;
       padding: 1rem 0rem; }
-    main .content .slide-container {
+    .home .content .slide-container {
       display: flex;
       margin: 0;
       overflow: hidden; }
-    main .content .card {
+    .home .content .card {
       padding: 0rem 0.1rem; }
-    main .content .card .image-box img {
+    .home .content .card .image-box img {
       object-fit: cover;
       width: 100%; }
-    main .content .details .date {
+    .home .content .details .date {
       color: #0f94a2; }
-    main .content .details .title, main .content .details .detail {
+    .home .content .details .title, .home .content .details .detail {
       color: #0b6a74; }
-    main .content .swiper-navBtn::before,
-    main .content .swiper-navBtn::after {
+    .home .content .swiper-navBtn::before,
+    .home .content .swiper-navBtn::after {
       font-size: 18px; }
+
+.contact {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  margin: auto;
+  bottom: 0px;
+  background: #f4ead9;
+  overflow: hidden;
+  display: grid;
+  grid-template-areas: 'txt' 'w';
+  grid-template-columns: 1fr;
+  grid-gap: 10px; }
+  .contact .image {
+    display: grid;
+    grid-template-areas: 'word' 'foot';
+    grid-template-columns: 1fr;
+    object-fit: cover;
+    grid-area: w;
+    position: absolute;
+    color: #f5f3ef;
+    margin: 0;
+    bottom: 0;
+    width: 100%;
+    height: 30vh;
+    text-align: center; }
+    .contact .image.first {
+      background: url(../img/flower3.png);
+      z-index: 1;
+      background-size: cover; }
+      .contact .image.first:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        background: rgba(50, 143, 154, 0.5); }
+    .contact .image.image {
+      background: url(../img/coffeebean.jpg);
+      z-index: 1;
+      background-size: cover; }
+      .contact .image.image:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        background: rgba(89, 44, 26, 0.5); }
+    .contact .image h1 {
+      height: 100%;
+      font-size: 1.7rem; }
+    .contact .image .words {
+      grid-area: word;
+      height: 20vh;
+      width: 100%; }
+    .contact .image .word {
+      font-size: 1.4rem;
+      margin: 1.2rem;
+      margin-top: 10vh;
+      position: relative; }
+    .contact .image .foot {
+      position: relative;
+      grid-area: foot;
+      bottom: 0;
+      text-align: center; }
+      .contact .image .foot h3 {
+        margin-top: 5px;
+        font-size: 15px; }
+  .contact .text {
+    text-align: center;
+    padding: 3rem;
+    grid-area: txt; }
+    .contact .text h3, .contact .text h4 {
+      color: #592c1a; }
+    .contact .text p {
+      margin-top: 5vh;
+      margin-bottom: 6vw;
+      color: #09545c; }
+    .contact .text h4 {
+      font-size: 1.2rem;
+      line-height: 1.4; }
 
 #main-footer {
   text-align: center;
   padding: 1rem;
-  background: #592c1a;
   color: #fff;
+  background: #592c1a;
   height: 60px; }
 
 @media screen and (min-width: 768px) and (max-width: 1000px) {
@@ -363,71 +468,16 @@ main {
     margin-top: 5vh;
     padding: 1rem 3rem;
     width: 12rem; }
-  main {
+  .home {
     padding: 2rem; }
-    main .content {
+    .home .content {
       grid-template-areas: 'intro1' 'con1' 'intro2' 'con2';
       grid-template-columns: 1fr; }
-    main .card {
+    .home .card {
       padding: 0rem 0rem; }
-  /*main{
-        align-items: center;
-        text-align: center;
-
-        .lg-heading{
-            line-height: 1;
-            margin-bottom: 1rem;
-        }
-    }
-
-    ul.menu-nav,
-    div.menu-branding{
-        float:none;
-        width:100%;
-        min-height: 0;
-
-        &.show{
-            transform: translate3d(0,0,0);
-        }
-    }
-    
-    .menu-nav{
-        height:75vh;
-        transform: translate3d(100%,0,0);
-        font-size: 24px;
-    }
-
-    .menu-branding{
-        height:25vh;
-        transform: translate3d(-100%,0,0);
-
-        .portrait{
-            background: url(../img/cutecat.jpg);
-            width: 150px;
-            height: 150px;
-            background-size: cover;
-            border: solid 3px $secondary-color;
-        }
-    }
-
-    .about-info{
-        grid-template-areas: 
-        'bioimage'
-        'bio'
-        'job1'
-        'job2'
-        'job3';
-        grid-template-columns: 1fr;
-    }
-
-    .projects{
-        grid-template-columns: repeat(1,1fr);
-    }
-    */ }
-
-@media screen and (max-width: 399px) {
-  /*
-    main#home h1{
-        margin-top: 10vh;
-    }
-    */ }
+  .contact .text h4 {
+    font-size: 1rem; }
+  .contact .text p {
+    margin-bottom: 7vw; }
+  .contact .image .word {
+    font-size: 1.2rem; } }

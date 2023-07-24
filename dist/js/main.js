@@ -8,6 +8,11 @@ const mobileLogo=document.querySelector('.mobile-logo');
 
 const headerEl = document.querySelector('.webheader');
 
+const homeBtn = document.querySelector('.home-link');
+const homeBtn1 = document.querySelector('.home-link1');
+const cntBtn = document.querySelector('.cnt-link');
+const cntBtn1 = document.querySelector('.cnt-link1');
+
 //Initial State of Menu
 let showMenu = false;
 
@@ -39,14 +44,48 @@ function toggleMenu(){
     }
 }
 
-//Change color
-function setColor(){
-    if($(".menu-web-nav").hasClass("current")){
-        if(and($("#home").hasClass("top"))){
-            document.getElementById("bw").style.color = "#fff";
-        }
-     }
+//Change navigation color
+
+/*cntBtn.addEventListener('click',navColorChange);
+function navColorChange(){
+    const root = document.querySelector(':root');
+    const color = getComputedStyle(root).getPropertyValue('--webnav-color').trim();
+    root.style.setProperty('--webnav-color', color === '#0d7f8b' ? '#fff' : '#0d7f8b');
+}*/
+
+cntBtn.onclick = () => {
+    document.querySelector(':root').style.setProperty('--webnav-color', '#0d7f8b');
+    document.querySelector(':root').style.setProperty('--logo-color', '#592c1a');
+    localStorage.setItem('nav-color1', '#0d7f8b'); 
+    localStorage.setItem('nav-color2', '#592c1a');
+};
+cntBtn1.onclick = () => {
+    document.querySelector(':root').style.setProperty('--webnav-color', '#0d7f8b');
+    document.querySelector(':root').style.setProperty('--logo-color', '#592c1a');
+    localStorage.setItem('nav-color1', '#0d7f8b'); 
+    localStorage.setItem('nav-color2', '#592c1a');
+};
+homeBtn.onclick = () => {
+    document.querySelector(':root').style.setProperty('--webnav-color', '#fff');
+    document.querySelector(':root').style.setProperty('--logo-color', '#fff');
+    localStorage.setItem('nav-color1', '#fff'); 
+    localStorage.setItem('nav-color2', '#fff');
+};
+homeBtn1.onclick = () => {
+    document.querySelector(':root').style.setProperty('--webnav-color', '#fff');
+    document.querySelector(':root').style.setProperty('--logo-color', '#fff');
+    localStorage.setItem('nav-color1', '#fff'); 
+    localStorage.setItem('nav-color2', '#fff');
+};
+window.onload = () => {
+    if (localStorage.getItem('nav-color1')) {
+          document.querySelector(':root').style.setProperty('--webnav-color', localStorage.getItem('nav-color1'));
+    }
+    if (localStorage.getItem('nav-color2')) {
+        document.querySelector(':root').style.setProperty('--logo-color', localStorage.getItem('nav-color2'));
+  }
 }
+
 
 // Navigation scroll
 window.addEventListener('scroll',()=>{
@@ -79,7 +118,7 @@ var swiper = new Swiper(".slide-container", {
         nextEl:".swiper-button-next",
     },
 
-// responsble
+// responseble
     breakpoints: {
         0:{
             slidesPerView:2,

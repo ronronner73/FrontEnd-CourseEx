@@ -1,3 +1,7 @@
+:root{
+    --webnav-color: #fff;
+    --logo-color:#fff;
+}
 
 .mobile-logo{
     position: absolute;
@@ -8,9 +12,11 @@
     padding: 31px 35px;
     font-size: 0.7rem;
     text-align: left;
-    border-bottom: 1px solid set-text-color-blue($change-color);
+    border-bottom: 1px solid var(--webnav-color);
+    color: var(--logo-color);
 
     &.color{
+        border-bottom: 1px solid #fff;
         h1{color: $secondary-color;}
     }
 }
@@ -28,7 +34,7 @@
         width: 28px;
         height: 2px;
         margin: 0 0 6px 0;
-        background: #fff;
+        background: var(--webnav-color);
         display: block;
         @include easeOut;
     }
@@ -148,13 +154,15 @@
 .webheader{
     z-index: 3;
     position: fixed;
-    display: flex;
+    display: grid;
+    grid-template-areas: 
+    'link logo img';
+    grid-template-columns: repeat(3,1fr);
     width: 100%;
     align-items: center;
-    justify-content: space-between;
     padding: 30px 50px;
-    color:set-text-color($secondary-color);
-    border-bottom: 1px solid set-text-color-blue($secondary-color);
+    color:var(--webnav-color);
+    border-bottom: 1px solid var(--webnav-color);
     @include easeOut;
 
     &.webheader-scrolled{
@@ -163,18 +171,20 @@
     }
 
     &.line{
-        border-bottom: 0px solid set-text-color-blue($change-color);
+        border-bottom: 0px solid var(--webnav-color);
     }
     
     .logo{
+        text-align: center;
+        grid-area: logo;
         font-family:orpheus-pro, Cochin, Georgia, Times, 'Times New Roman', serif;
         font-size: 27px;
         font-weight: 200;
-        text-align: center;
-        color: set-text-color-brown($change-color);   
+        color: var(--logo-color);   
     }
 
     .menu-web{
+        grid-area: link;
         align-items: center;
         display: flex;
         column-gap: 15px;
@@ -182,18 +192,20 @@
     
     .menu-web-nav{
         &.current > a {
-            border-bottom: 1.5px solid set-text-color-blue($change-color);
+            border-bottom: 1.5px solid var(--webnav-color);
         }
     }
-    
     .web-link{
         text-decoration: none;
-        color: set-text-color-blue($change-color);   
+        color: var(--webnav-color);   
+
     }
     
     .menu-web-icons{
+        text-align: right;
+        grid-area: img;
         a{
-            color: set-text-color-blue($change-color); 
+            color: var(--webnav-color); 
             padding: 0.4rem;
         } 
     }

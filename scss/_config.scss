@@ -4,8 +4,6 @@ $change-color:$secondary-color;
 $show-home-image:true;
 $home-image:url(../img/flower3.png);
 $bg-opacity:0.5;
-$blueText:set-text-color-blue(#fff);
-$brownText:set-text-color-brown(#fff);
 
 @mixin easeOut{
     transition: all 0.5s ease-out;
@@ -30,6 +28,24 @@ $brownText:set-text-color-brown(#fff);
                 background:rgba(#328f9a,$bg-opacity);
             }
         }
+        &.image{
+            background: url(../img/coffeebean.jpg);
+            z-index: 1;
+            background-size: cover;
+
+            //overlay
+            &:after{
+                content:'';
+                position: absolute;
+                top:0;
+                right:0;
+                width: 100%;
+                height: 100%;
+                z-index: -1;
+                background:rgba($primary-color,$bg-opacity);
+            }
+        }
+        
     }
 }
 
@@ -42,6 +58,8 @@ $brownText:set-text-color-brown(#fff);
     }
 }
 
+
+//It didn't work correctly in this project of mine qwq
 @function set-text-color-brown($color){
     @if(lightness($color)>40){
         @return $primary-color;
